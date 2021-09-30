@@ -4,6 +4,12 @@ const task1 = {
             view: "toolbar",
             cols: [
                 {
+                    view: "label",
+                    label: "Sort list :",
+                    inputWidth: 100,
+                    align: "left",
+                },
+                {
                     view: "mybutton",
                     width: 100,
                     state: 0,
@@ -29,8 +35,7 @@ const task1 = {
                 height: 60,
                 width: 240,
             },
-            template:
-                "<div class='webix_strong'>#id#. #title#</div> Year: #year#, rank: #rank#",
+            template: "<strong>#id#. #title#</strong><br> Year: #year#, rank: #rank#",
             url: "../data.js",
         },
     ],

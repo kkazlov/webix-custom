@@ -3,7 +3,7 @@ import task1 from "./components/task1.js";
 webix.protoUI(
     {
         name: "mybutton",
-        $cssName: "button",
+        $cssName: "button stateButton",
         $init: function (config) {
             const state = config.value || 0;
             config.value = config.states[state];
@@ -51,7 +51,12 @@ webix.protoUI(
                         css: "webix_primary",
                         on: {
                             onItemClick: () => {
-                                config.saveAction();
+                                if(!config.saveAction) {
+                                    webix.message("default saveAction is working");
+                                } else {
+                                    config.saveAction();
+                                }
+                                
                             },
                         },
                     },
