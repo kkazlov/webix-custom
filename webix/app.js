@@ -1,0 +1,6 @@
+webix.ready(() => {
+    webix.ui({
+        
+    });
+
+});
