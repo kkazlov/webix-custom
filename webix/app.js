@@ -29,8 +29,56 @@ webix.protoUI(
     webix.ui.button
 );
 
+webix.protoUI(
+    {
+        name: "formControl",
+        $init: function (config) {
+            const btns = {
+                cols: [
+                    {
+                        view: "button",
+                        value: "Cancel",
+                        on: {
+                            onItemClick: () => {
+                                this.clear();
+                            },
+                        },
+                    },
+                    {},
+                    {
+                        view: "button",
+                        value: "Save",
+                        css: "webix_primary",
+                        on: {
+                            onItemClick: () => {
+                                config.saveAction();
+                            },
+                        },
+                    },
+                ],
+            };
+            const fields = config.fields.map((item) => {
+                return { view: "text", label: item, name: item };
+            });
+            config.elements = [...fields, btns];
+        },
+    },
+    webix.ui.form
+);
+
 webix.ready(() => {
     webix.ui({
-        rows: [task1],
+        cols: [
+            task1,
+            { view: "resizer" },
+            {
+                view: "formControl",
+                id: "formOne",
+                fields: ["one", "two", "three"],
+                saveAction: function () {
+                    webix.message("saveAction is working");
+                },
+            },
+        ],
     });
 });

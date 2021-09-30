@@ -3,7 +3,6 @@ const task1 = {
         {
             view: "toolbar",
             cols: [
-                { template: "sort list: " },
                 {
                     view: "mybutton",
                     width: 100,
